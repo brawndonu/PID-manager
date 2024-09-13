@@ -1,0 +1,91 @@
+The goal of this assignment is to create an operating system's PID manager 
+that is responsible for managing process identifiers. When a process is first 
+created, it is assigned a unique pid by the pid manager. The pid is returned to 
+the pid manager when the process completes execution, and the manager may later 
+reassign this pid.
+
+What is most important here is to recognize that process identifiers must be unique; 
+no two active processes can have the same PID.
+
+Use the following constants to identify the range of possible pid values:
+
+#define MIN_PID 100
+
+#define MAX_PID 1000
+
+You must use OOP to implement this project. Also, adopt what Linux has done and utilize 
+a bitmap in which a value of 0 at position i indicates that a process ID of value i is 
+available, and a value of 1 indicates that the process id is currently in use.
+
+Implement the following for obtaining and releasing a PID:
+
+int allocate_map(void) — Creates and initializes a data structure for representing pids;
+returns −1 if unsuccessful, 1 if successful
+
+int allocate_pid(void) — Allocates and returns a pid; returns −1 if unable to allocate a 
+pid (all pids are in use)
+
+void release_pid(int pid) — Releases a pid
+
+Inside your main function add  a fork integration: The fork() system call creates a new 
+child process. In the child process, a new PID manager object is instantiated, demonstrating 
+independent PID management. Both the parent and child processes manage their own PIDs 
+independently, showing how different processes can have separate PID management logic. 
+Each process also releases its own PID after completing its tasks.
+
+Deliverable: A C++ code that implements the coding requirements. Provide the source code by 
+copying and pasting it directly (avoid using screenshots of the code), and include screenshots 
+displaying the output from a variety of test cases. Use your creativity and think about 
+different test cases (see examples below). 
+
+You may work in group of 2 students, each member should submit the project, remember to 
+include everyone's name on your project file that describes individual coding contributions, 
+please use the group evaluation form:
+
+Group Members:
+[Your Name]
+[Member 2's Name]
+[For each member - fill out five reporting criteria]
+
+Role:
+[Specify role, e.g., Project Manager, Researcher, Designer, Developer, etc.]
+Tasks Completed:
+[List specific tasks or activities the student was responsible for.]
+Achievements:
+[Mention any notable achievements or contributions the student made to the project.]
+Contribution and Performance Rates:
+[1 being the lowest, 10 being the highest. This section allows each group member to provide a 
+numerical score for their teammates, fostering communication and reflection on group dynamics.]
+*You can work by yourself too. Then, you may skip the evaluation form.
+
+Reminder: Late submissions of programming assignments will incur a penalty. For each hour a 
+submission is delayed beyond the deadline, one point will be deducted from the assignment's 
+total score. This policy has been implemented to ensure fairness and consistency in evaluating 
+student work. 
+
+ 
+
+This is the example of test cases ideas for this project, please consider a 
+similar approach for upcoming projects:
+
+Requirement test cases:
+
+Call allocate_map to initialize the data structure.
+Call allocate_pid multiple times to allocate PIDs.
+Check if the allocated PIDs fall within the specified range.
+Call release_pid for each allocated PID.
+Check if the released PIDs become available for allocation again.
+
+What if test cases: 
+
+Test error handling by calling allocate_pid before calling allocate_map.
+Verify that allocate_pid returns -1.
+Test releasing a PID without initializing the data structure.
+Allocate and release PIDs in a loop for a large number of iterations.
+Test and check for memory leaks.
+Randomly allocate and release PIDs multiple times.
+Verify that the allocated PIDs are within the specified range.
+Ensure that released PIDs become available for allocation.
+Attempt to allocate a PID when the range is exhausted 
+(MAX_PID - MIN_PID + 1 allocations).
+Check if the function returns -1, indicating that all PIDs are in use.
