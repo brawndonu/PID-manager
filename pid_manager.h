@@ -6,7 +6,8 @@
 
 class PidManager {
 private:
-    int pid_map[MAX_PID - MIN_PID + 1]; // Bitmap to track PIDs
+    int pid_map[MAX_PID - MIN_PID + 1];  // Bitmap to track PIDs
+    bool is_initialized;  // Flag to check if the map is initialized
 
 public:
     PidManager();  // Constructor
