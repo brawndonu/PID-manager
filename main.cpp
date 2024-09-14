@@ -1,3 +1,8 @@
+// Brandon Uribe
+// @csu.fullerton.edu
+// @brawndonu
+// Partners: @jperezjr221
+
 #include "pid_manager.h"
 #include <iostream>
 #include <unistd.h>
@@ -48,7 +53,6 @@ int main() {
             return -1;
         }
 
-        int child_pid = childManager.allocate_pid();
         int child_pid = childManager.allocate_pid();
         std::cout << "Child process allocated PID: " << child_pid << std::endl;
 
