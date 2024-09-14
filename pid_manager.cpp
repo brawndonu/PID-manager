@@ -1,7 +1,9 @@
 #include "pid_manager.h"
 #include <iostream>
+#include <iostream>
 
 PidManager::PidManager() {
+    is_initialized = false;
     is_initialized = false;
     for (int i = 0; i < MAX_PID - MIN_PID + 1; i++) {
         pid_map[i] = 0;  // all pid available at start

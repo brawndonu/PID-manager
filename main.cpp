@@ -49,6 +49,7 @@ int main() {
         }
 
         int child_pid = childManager.allocate_pid();
+        int child_pid = childManager.allocate_pid();
         std::cout << "Child process allocated PID: " << child_pid << std::endl;
 
         childManager.release_pid(child_pid);
